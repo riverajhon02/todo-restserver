@@ -22,10 +22,17 @@ const todoSchema = new Schema({
     estado: {
         type: String,
         default: 'EN PROGRESO'
+    },
+
+    complete: {
+
+        type: Boolean,
+        default: false
+
     }
 
 });
 
-userSchema.plugin(uniqueValidator, { message: '{PATH} debe de ser unico' });
+todoSchema.plugin(uniqueValidator, { message: '{PATH} debe de ser unico' });
 
 module.exports = mongoose.model('Todo', todoSchema);
